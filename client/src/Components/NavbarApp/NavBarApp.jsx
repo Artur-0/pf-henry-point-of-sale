@@ -18,18 +18,18 @@ export default function NavBarApp() {
     }, 1000);
   });
 
-  const auth = useSelector((state) => state.auth);
-  const { user, isLogged } = auth;
+  // const auth = useSelector((state) => state.auth);
+  // const { user, isLogged } = auth;
 
-  const handleLogout = async () => {
-    try {
-      await axios.get("/users/logout");
-      localStorage.removeItem("firstLogin");
-      window.location.href = "/";
-    } catch (err) {
-      window.location.href = "/";
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     await axios.get("/users/logout");
+  //     localStorage.removeItem("firstLogin");
+  //     window.location.href = "/";
+  //   } catch (err) {
+  //     window.location.href = "/";
+  //   }
+  // };
 
   return (
     <NavBar>
@@ -41,7 +41,7 @@ export default function NavBarApp() {
         Historial
       </Button>
       <Button onClick={() => history.push("/cashFlow")}>Cash Flow</Button>
-      <div className="user-menu">
+      {/* <div className="user-menu">
         <Link to="/profile" className="profile">
           <img 
             id="avatar"
@@ -50,16 +50,16 @@ export default function NavBarApp() {
             alt=""
           />{" "}
           {user.name}
-        </Link>
+        </Link> */}
 
-        <Link to="/" onClick={handleLogout} className="logout">
+      {/* <Link to="/" onClick={handleLogout} className="logout">
         <FontAwesomeIcon className="logout-icon"
                 icon={faArrowRightFromBracket}
                 style={{ width: 30, height: 30 }}
               />
           <div>Logout</div>
         </Link>
-      </div>
+      </div> */}
       <Time>{time}</Time>
     </NavBar>
   );
