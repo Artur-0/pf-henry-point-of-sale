@@ -2,8 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { disableProductAction } from "../../redux/actions/productsActions";
-import { ButtonX, ButtonDis,ButtonDelete, ButtonSave } from '../../theme/styled-componets';
-import Swal from 'sweetalert2'
+import {
+  ButtonX,
+  ButtonDis,
+  ButtonDelete,
+  ButtonSave,
+} from "../../theme/styled-componets";
+import Swal from "sweetalert2";
 import LoadImage from "./LoadImage";
 
 export default function FormProducts({
@@ -32,7 +37,7 @@ export default function FormProducts({
           idcategory: productEdit.idcategory,
           active: productEdit.active,
           image: productEdit.image,
-          id: productEdit.id
+          id: productEdit.id,
         }
   );
   console.log("STATE edit:", state.idcategory);
@@ -44,9 +49,9 @@ export default function FormProducts({
       "https://media.istockphoto.com/photos/chinese-food-blank-background-picture-id545286388?k=20&m=545286388&s=612x612&w=0&h=1zAWEuV5W6SoYtErOkWasELFcAWMKgQEBUsNOoH5znc=",
   };
 
-  const [imageScreen, setImageScreen] = useState(false)
+  const [imageScreen, setImageScreen] = useState(false);
 
-  let dispatch = useDispatch()
+  let dispatch = useDispatch();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -59,27 +64,24 @@ export default function FormProducts({
   };
 
   const deleteAlert = (e) => {
-
     Swal.fire({
-      title: 'Advertencia',
-      text: 'Estás seguro que deseas eliminar este producto?',
-      icon: 'warning',
+      title: "Warning",
+      text: "Are you sure that you want to delete this?",
+      icon: "warning",
       showDenyButton: true,
-      denyButtonText: 'No',
-      confirmButtonText: 'Sí'
-    }).then(res => {
-      if(res.isConfirmed){
-        handleDelete(e)
+      denyButtonText: "No",
+      confirmButtonText: "Yes",
+    }).then((res) => {
+      if (res.isConfirmed) {
+        handleDelete(e);
       }
-    })
-
-  }
+    });
+  };
 
   const handleDelete = (e) => {
-
     //Hace la funcion
-    dispatch(disableProductAction(productEdit.id))
-    setProductEdit((oldProduct) => ({...oldProduct, active: false}))
+    dispatch(disableProductAction(productEdit.id));
+    setProductEdit((oldProduct) => ({ ...oldProduct, active: false }));
 
     // Cierra la pestaña
     setShowFormProducts(false);
@@ -89,14 +91,11 @@ export default function FormProducts({
       categorias: "",
       desc: "",
     });
-
-  }
+  };
 
   const showImageScreen = (e) => {
-
-    setImageScreen(true)
-
-  }
+    setImageScreen(true);
+  };
 
   //const saveAlert = (e) => {
   //  Swal.fire({
@@ -114,9 +113,7 @@ export default function FormProducts({
   //}
 
   const handleSubmit = (e) => {
-    console.log("llega a handleSubmit")
     e.preventDefault();
-    console.log("prodcuto a post:", state);
     addProduct(state);
   };
 
@@ -151,10 +148,7 @@ export default function FormProducts({
         }}
       >
         {imageScreen && (
-          <LoadImage
-          setImageScreen={setImageScreen}
-          setState={setState}
-          />
+          <LoadImage setImageScreen={setImageScreen} setState={setState} />
         )}
         <ButtonX
           onClick={() => {
@@ -166,7 +160,9 @@ export default function FormProducts({
               desc: "",
             });
           }}
-        >X</ButtonX>
+        >
+          X
+        </ButtonX>
         <form
           onSubmit={(e) => handleSubmit(e)}
           style={{
@@ -194,17 +190,27 @@ export default function FormProducts({
           >
             <div>
               <img
-                src={
-                  state.image
-                    ? state.image
-                    : imagenes[state.idcategory]
-                }
+                src={state.image ? state.image : imagenes[state.idcategory]}
                 alt=""
-                style={{ objectFit: "cover", width: "100%", height: "100%", borderRadius: "0.3rem" }}
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "0.3rem",
+                }}
               />
             </div>
-            <ButtonDis type="button" onClick={showImageScreen}>Agregar Imagen</ButtonDis>
-            <ButtonDelete onClick={(e) => {deleteAlert(e)}} type="button">Eliminar</ButtonDelete>
+            <ButtonDis type="button" onClick={showImageScreen}>
+              Add Image
+            </ButtonDis>
+            <ButtonDelete
+              onClick={(e) => {
+                deleteAlert(e);
+              }}
+              type="button"
+            >
+              Delete
+            </ButtonDelete>
             <ButtonSave
               disabled={
                 state.name === "" ||
@@ -214,7 +220,9 @@ export default function FormProducts({
                 state.idcategory === "Select Category"
               }
               type="submit"
-            >Guardar</ButtonSave>
+            >
+              Save
+            </ButtonSave>
           </div>
           {/* right side */}
           <div
@@ -240,7 +248,7 @@ export default function FormProducts({
                 justifyContent: "center",
               }}
             >
-              Nombre
+              Name
             </div>
             <input
               onChange={(e) => handleChange(e)}
@@ -266,7 +274,7 @@ export default function FormProducts({
                 fontWeight: "bold",
               }}
             >
-              Descripcion
+              Description
             </div>
             <textarea
               onChange={(e) => handleChange(e)}
@@ -291,7 +299,7 @@ export default function FormProducts({
                 justifyContent: "center",
               }}
             >
-              Precio
+              Price
             </div>
             <input
               onChange={(e) => handleChange(e)}
@@ -341,7 +349,7 @@ export default function FormProducts({
                 justifyContent: "center",
               }}
             >
-              Categorias
+              Category
             </div>
             <select
               onChange={(e) => handleCategoria(e)}

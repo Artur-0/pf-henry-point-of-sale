@@ -5,6 +5,16 @@
   overflow-x: hidden;
   width: 100%;
 }
+/* 
+#empty {
+  color: green;
+  border-radius: 2px;
+  height: 40vh;
+  width: 30vw;
+  margin-top:20%;
+  margin-left: 15%;
+  display: flex;
+} */
 
 .etapas_de_ordenes {
   display: flex;

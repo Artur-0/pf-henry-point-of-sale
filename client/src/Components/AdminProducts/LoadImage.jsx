@@ -91,7 +91,7 @@ export default function LoadImage({ setImageScreen, setState }) {
         >
           {loading && (
             <div>
-              <p>Cargando...</p>
+              <p>Loading...</p>
             </div>
           )}
         </div>
@@ -101,7 +101,7 @@ export default function LoadImage({ setImageScreen, setState }) {
           type="button"
           onClick={uploadImage}
         >
-          Guardar
+          Save
         </ButtonSave>
       </div>
     </div>

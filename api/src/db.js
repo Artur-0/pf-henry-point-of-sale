@@ -2,34 +2,17 @@ require("dotenv").config();
 const { Sequelize, Op } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_NAME,
-  CLIENT_URL,
-  MAILING_SERVICE_CLIENT_ID,
-  MAILING_SERVICE_CLIENT_SECRET,
-  MAILING_SERVICE_REFRESH_TOKEN,
-  SENDER_EMAIL_ADDRESS,
-  ACCESS_TOKEN_SECRET,
-  REFRESH_TOKEN_SECRET,
-  ACTIVATION_TOKEN_SECRET,
-  CLOUD_NAME,
-  CLOUD_API_KEY,
-  CLOUD_API_SECRET,
-  GOOGLE_SECRET,
-} = process.env;
+const { PGUSER, PGPASSWORD, PGHOST, PGNAME } = process.env;
 
 let sequelize =
   process.env.NODE_ENV === "production"
     ? new Sequelize({
-        database: DB_NAME,
+        database: PGNAME,
         dialect: "postgres",
-        host: DB_HOST,
+        host: PGHOST,
         port: 5432,
-        username: DB_USER,
-        password: DB_PASSWORD,
+        username: PGUSER,
+        password: PGPASSWORD,
         pool: {
           max: 3,
           min: 1,
@@ -45,7 +28,7 @@ let sequelize =
         },
         ssl: true,
       })
-    : new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pos`, {
+    : new Sequelize(`postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}/pos`, {
         logging: false,
         native: false,
       });

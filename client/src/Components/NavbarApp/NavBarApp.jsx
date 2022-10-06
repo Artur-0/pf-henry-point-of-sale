@@ -33,13 +33,13 @@ export default function NavBarApp() {
 
   return (
     <NavBar>
-      <Button onClick={() => history.push("/store")}>Ventas</Button>
-      <Button onClick={() => history.push("/kitchen")}>Kitchen</Button>
-      <Button onClick={() => history.push("/counter")}>Pedidos Ready</Button>
-      <Button onClick={() => history.push("/adminProducts")}>Products</Button>
-      <Button onClick={() => history.push("/historialPedidos")}>
-        Historial
+      <Button onClick={() => history.push("/store")}>Counter</Button>
+      <Button onClick={() => history.push("/counter")}>
+        Ready for pick up
       </Button>
+      <Button onClick={() => history.push("/kitchen")}>Kitchen</Button>
+      <Button onClick={() => history.push("/adminProducts")}>Products</Button>
+      <Button onClick={() => history.push("/historialPedidos")}>History</Button>
       <Button onClick={() => history.push("/cashFlow")}>Cash Flow</Button>
       {/* <div className="user-menu">
         <Link to="/profile" className="profile">

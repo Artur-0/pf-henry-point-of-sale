@@ -40,9 +40,9 @@ export default function CashFlow() {
               backgroundColor: "violet",
             }}
           >
-            Resumen de Caja{" "}
+            Cashflow{" "}
             <button onClick={() => history.push("/cashFlow/historialCashFlow")}>
-              Historial De Cierres
+              Summary
             </button>
           </div>
           {lastCashFlow && !lastCashFlow.closeCashFlow && (
@@ -65,31 +65,31 @@ export default function CashFlow() {
                 }}
               >
                 <BoxesCashFlow
-                  title={"Inicio de Caja"}
+                  title={"Opening balance"}
                   value={lastCashFlow ? lastCashFlow.initialCash : 0}
                 />
                 <BoxesCashFlow
-                  title={"Ventas Efectivo"}
+                  title={"Cash sales"}
                   value={lastCashFlow ? lastCashFlow.cashPayment : 0}
                 />
                 <BoxesCashFlow
-                  title={"Ventas Tarjeta"}
+                  title={"Card sales"}
                   value={lastCashFlow ? lastCashFlow.paypalPayment : 0}
                 />
                 <BoxesCashFlow
-                  title={"Total de Ventas"}
+                  title={"Total sales"}
                   value={lastCashFlow ? lastCashFlow.totalSales : 0}
                 />
                 <BoxesCashFlow
-                  title={"Ingresos"}
+                  title={"Incomes"}
                   value={lastCashFlow ? lastCashFlow.income : 0}
                 />
                 <BoxesCashFlow
-                  title={"Egresos"}
+                  title={"Expenses"}
                   value={lastCashFlow ? lastCashFlow.expenses : 0}
                 />
                 <BoxesCashFlow
-                  title={"Total de Efectivo"}
+                  title={"Total cash"}
                   value={lastCashFlow ? lastCashFlow.totalCashRegister : 0}
                 />
               </div>
@@ -136,7 +136,7 @@ export default function CashFlow() {
                         </div>
                       );
                     })
-                  : "hola"}
+                  : "hi"}
               </div>
             </div>
           )}
@@ -161,8 +161,7 @@ export default function CashFlow() {
           </div>
         </div>
       </div>
-      <div>
-      </div>
+      <div></div>
     </div>
   );
 }

@@ -91,7 +91,7 @@ export default function HistorialPedidos() {
           padding: "10px",
         }}
       >
-        <label>Desde:</label>
+        <label>From:</label>
         <input
           type="date"
           name="from"
@@ -105,7 +105,7 @@ export default function HistorialPedidos() {
             handleChangeFromDate(e);
           }}
         />
-        <label>Hasta:</label>
+        <label>To:</label>
         <input
           min={fromToFilter.from}
           type="date"
@@ -115,7 +115,7 @@ export default function HistorialPedidos() {
             handleChangeToDate(e);
           }}
         />
-        <label>Filtrar por estado:</label>
+        <label>Filter by status:</label>
 
         <select name="" id="" onChange={(e) => handleChangeFilter(e)}>
           <option value="All Orders">All Orders</option>
@@ -176,13 +176,13 @@ export default function HistorialPedidos() {
                     }}
                   >
                     <span>N°: {order.orderNumber}</span>
-                    <span>Fecha: {order.date + "-" + order.timeEnd}</span>
+                    <span>Date: {order.date + "-" + order.timeEnd}</span>
                     <span style={{ backgroundColor: colores[order.status] }}>
                       {" "}
                       {order.status.toUpperCase()}
                     </span>
                     <select name="" id="">
-                      <option value="">Ver Productos</option>
+                      <option value="">Products</option>
                       {order.productsOrder &&
                         order.productsOrder.map((product) => {
                           return (
@@ -227,8 +227,7 @@ export default function HistorialPedidos() {
         </div>
       </div>
       {/* navbar */}
-      <div style={{ width: "100%", height: "10vh" }}>
-      </div>
+      <div style={{ width: "100%", height: "10vh" }}></div>
 
       {/*Modal Editar   */}
       {mostrarForm && (
@@ -280,9 +279,9 @@ export default function HistorialPedidos() {
               }}
             >
               <span>N°:{orderEdit.orderNumber} </span>
-              <span>Estado: {orderEdit.status.toUpperCase()}</span>
+              <span>Status: {orderEdit.status.toUpperCase()}</span>
 
-              <span>Fecha: {orderEdit.date}</span>
+              <span>Date: {orderEdit.date}</span>
               <button onClick={() => setMostrarForm(false)}>X</button>
             </div>
             <div
@@ -297,7 +296,7 @@ export default function HistorialPedidos() {
               }}
             >
               <span>
-                Cant de Productos:{" "}
+                Amount of Products:{" "}
                 {orderEdit.productsOrder && orderEdit.productsOrder.length}{" "}
               </span>
               <div
@@ -347,7 +346,7 @@ export default function HistorialPedidos() {
                 backgroundColor: "white",
               }}
             >
-              Descripcion:
+              Description:
               {orderEdit.comments}
             </div>
             <div
@@ -363,7 +362,7 @@ export default function HistorialPedidos() {
                 justifyContent: "end",
               }}
             >
-              <span>Medio de Pago:{orderEdit.methodPayment}</span>
+              <span>Payment method:{orderEdit.methodPayment}</span>
 
               <span>Total:</span>
 
@@ -400,7 +399,7 @@ export default function HistorialPedidos() {
                   desactivateOrder(orderEdit);
                 }}
               >
-                Borrar
+                Delete
               </button>
               {/* <button>Guardar</button> */}
             </div>

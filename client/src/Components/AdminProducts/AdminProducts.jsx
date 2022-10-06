@@ -32,7 +32,7 @@ export default function AdminProducts() {
     active: true,
     idcategory: "",
     image: "",
-    id: ""
+    id: "",
   });
 
   const [addCatShow, setAddCatShow] = useState(false);
@@ -73,7 +73,6 @@ export default function AdminProducts() {
   };
 
   const [changeColor, setChangeColor] = useState("white");
-  console.log("esto son los producs del reducer state:", products);
 
   return (
     <div
@@ -120,9 +119,9 @@ export default function AdminProducts() {
             <SearchNav />{" "}
           </span>
           <ButtonSave onClick={() => setShowFormProducts(!showFormProducts)}>
-            Agregar Productos
+            Add Products
           </ButtonSave>
-          <span>Admin Page</span>
+          {/* <span>Admin Page</span> */}
         </div>
         <div
           style={{
@@ -380,7 +379,6 @@ export default function AdminProducts() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function HistorialsCashFlow() {
           padding: "10px",
         }}
       >
-        <label>Buscar por Fecha:</label>
+        <label>Search by date:</label>
         <input
           type="date"
           name="from"
@@ -53,15 +53,15 @@ export default function HistorialsCashFlow() {
           }}
         />
 
-        <label>Filtrar por Estrella:</label>
+        <label>Filter by stars:</label>
 
         <select name="" id="">
           <option value="All Orders">All Orders</option>
-          <option value="pending">1 Estrella</option>
-          <option value="doing">2 Estrellas</option>
-          <option value="ready">3 Estrellas</option>
-          <option value="finished">4 Estrellas</option>
-          <option value="finished">5 Estrellas</option>
+          <option value="pending">1 Star</option>
+          <option value="doing">2 Stars</option>
+          <option value="ready">3 Stars</option>
+          <option value="finished">4 Stars</option>
+          <option value="finished">5 Stars</option>
         </select>
       </div>
       {/* CashFlow List */}
@@ -155,7 +155,7 @@ export default function HistorialsCashFlow() {
                 textAlign: "center",
               }}
             >
-              NO CASH FLOW FOR THIS DATE
+              NO MOVEMENTS FOR THIS DATE
             </span>
           )}
         </div>
@@ -180,8 +180,7 @@ export default function HistorialsCashFlow() {
         </div>
       </div>
       {/* navbar */}
-      <div style={{ width: "100%", height: "10vh" }}>
-      </div>
+      <div style={{ width: "100%", height: "10vh" }}></div>
     </div>
   );
 }

@@ -15,7 +15,6 @@ function Counter() {
 
   const dispatch = useDispatch();
 
-
   const postToast = () => {
     const Toast = Swal.mixin({
       toast: true,
@@ -35,7 +34,6 @@ function Counter() {
     });
   };
 
-
   const handleEnded = (e, n) => {
     // e.preventDefault();
     dispatch(updateStatusFinished(e.target.value, n));
@@ -54,9 +52,18 @@ function Counter() {
         {/* <div class="pedidos en preparacion">
           <h1>Pending orders</h1>
         </div> */}
-        <h1>Ready</h1>
+        <h1>Ready:</h1>
         <div className={s.container}>
-          {ordersReady &&
+          {!ordersReady.length ? (
+            <h1
+              style={{
+                marginTop: "10%",
+                marginLeft: "95%",
+              }}
+            >
+              There isn't any order ready yet
+            </h1>
+          ) : (
             ordersReady.map((o) => {
               return (
                 o.status !== "finished" && (
@@ -102,7 +109,8 @@ function Counter() {
                   </div>
                 )
               );
-            })}
+            })
+          )}
         </div>
       </div>
     </div>
