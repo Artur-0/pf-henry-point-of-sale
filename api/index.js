@@ -387,7 +387,8 @@ async function precarga() {
 conn
   .sync({ force: true })
   .then(() => {
-    server.listen(process.env.PGPORT, () => {
+    //change for PGPORT when using locally
+    server.listen(process.env.PORT, () => {
       console.log("%s listening at 3001"); // eslint-disable-line no-console
     });
   })
